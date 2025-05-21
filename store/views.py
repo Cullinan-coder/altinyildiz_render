@@ -1,6 +1,8 @@
-from django.contrib import admin
-from django.urls import path, include
 from django.http import HttpResponse
+
+def home(request):
+    return HttpResponse("Anasayfa")
+
 def product_detail(request, product_id):
     return HttpResponse(f"Ürün Detayı: {product_id}")
 
@@ -33,9 +35,3 @@ def remove_favorite(request, product_id):
 
 def signup_view(request):
     return HttpResponse("Kayıt Ol")
-def home(request):
-    return HttpResponse
-urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', include('store.urls')),  # store uygulamasındaki url'leri dahil eder
-]
